@@ -593,7 +593,7 @@ take_site_backup() {
 
 # take DB and files backup of site
 export_site() {
-  JORDAN_FOLDER="/mnt/c/Users/jorda/Documents/Github/Lokl-Test-Site/"
+  JORDAN_FOLDER="/mnt/c/Users/jorda/Sites/${CONTAINER_NAME}/"
   clear
   echo "Copying /root/${CONTAINER_NAME} to ${JORDAN_FOLDER}"
   echo ""
