@@ -593,14 +593,13 @@ take_site_backup() {
 
 # take DB and files backup of site
 export_site() {
-  start_if_stopped
-  
   JORDAN_FOLDER="/mnt/c/Users/jorda/Documents/Github/Lokl-Test-Site/"
   clear
   echo "Copying /output to Windows..."
   echo ""
   docker cp --recursive "$CONTAINER_ID:/output" $JORDAN_FOLDER
   echo "Done"
+  exit 0
   # # ensure file was generated
   # if [ ! -f "/tmp/${CONTAINER_NAME}_SITE_BACKUP.tar.gz" ]; then
   #   echo "Failed to save backup, try again"
