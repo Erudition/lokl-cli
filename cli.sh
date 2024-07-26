@@ -530,6 +530,7 @@ manage_single_site() {
   echo "s) SSH into container"
   echo "t) take backup of site files and database"
   echo "l) follow server error logs"
+  echo "e) export /output to Jordan folder"
 
   if [ "$CONTAINER_STATE" = "running" ]; then
     echo "k) kill (force quit) site's server"
@@ -556,6 +557,7 @@ manage_single_site() {
       m|M) manage_sites_menu ;;
       k|K) kill_container ;;
       d|D) delete_container ;;
+      e|E) export_site ;;
       q|Q) exit 0 ;;
     esac
 
@@ -587,6 +589,27 @@ take_site_backup() {
     echo ""
     exit 0
   fi
+}
+
+# take DB and files backup of site
+export_site() {
+  start_if_stopped
+  
+  JORDAN_FOLDER="/mnt/c/Users/jorda/Documents/Github/Lokl-Test-Site/"
+  clear
+  echo "Copying /output to Windows..."
+  echo ""
+  docker cp --recursive "$CONTAINER_ID:/output" $JORDAN_FOLDER
+  echo "Done"
+  # # ensure file was generated
+  # if [ ! -f "/tmp/${CONTAINER_NAME}_SITE_BACKUP.tar.gz" ]; then
+  #   echo "Failed to save backup, try again"
+  #   exit 1
+  # else 
+  #   echo "Backup complete"
+  #   echo ""
+  #   exit 0
+  # fi
 }
 
 # shell connect to container using Docker
