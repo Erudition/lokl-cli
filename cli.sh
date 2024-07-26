@@ -595,9 +595,9 @@ take_site_backup() {
 export_site() {
   JORDAN_FOLDER="/mnt/c/Users/jorda/Documents/Github/Lokl-Test-Site/"
   clear
-  echo "Copying /output to Windows..."
+  echo "Copying /root/${CONTAINER_NAME} to ${JORDAN_FOLDER}"
   echo ""
-  docker cp "$CONTAINER_ID:/root/output" $JORDAN_FOLDER
+  docker cp "$CONTAINER_ID:/root/${CONTAINER_NAME}/." $JORDAN_FOLDER
   echo "Done"
   exit 0
   # # ensure file was generated
