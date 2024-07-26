@@ -546,7 +546,7 @@ manage_single_site() {
   echo ""
   read -r site_action_choice
 
-  if [ "$site_action_choice" != "${site_action_choice#[oapstlkdmq]}" ]; then
+  if [ "$site_action_choice" != "${site_action_choice#[oapstlkdmqe]}" ]; then
     case $site_action_choice in
       o|O) open_site_in_browser ;;
       a|A) open_wordpress_admin ;;
