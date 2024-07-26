@@ -597,7 +597,7 @@ export_site() {
   clear
   echo "Copying /output to Windows..."
   echo ""
-  docker cp "$CONTAINER_ID:/output" $JORDAN_FOLDER
+  docker cp "$CONTAINER_ID:/root/output" $JORDAN_FOLDER
   echo "Done"
   exit 0
   # # ensure file was generated
